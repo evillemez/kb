@@ -1,0 +1,86 @@
+# Note: copy/paste the YAML below into the editor at https://ergogen.cache.works/
+
+points:
+  # apply props to all keys
+  key:
+    padding: cy # global choc vertical spacing
+    tags:
+      1u: true
+  mirror:
+    ref: thumbs_outer_secondary
+    distance: 40
+
+  zones:
+    # main section is for the alpha keys
+    main:
+      rotate: -20
+      rows:
+        bottom:
+        home:
+        top:
+      columns:
+        outer:
+        pinkie:
+          spread: cx # choc horiz spacing
+        ring:
+        middle:
+        index:
+        inner:
+          spread: cx # choc horiz spacing
+
+    # primary thumb keys
+    thumbs:
+      anchor:
+        ref: main_inner_bottom
+        shift: [15, -20]
+        rotate: -25
+      key:
+        tags:
+          1u: false
+          15u: true
+      rows:
+        primary:
+          width: 1.5
+          padding: 1.5cy-3
+          rotate: 90
+          tags:
+            15u: true
+            1u: false
+        secondary:
+      columns:
+        inner:
+        outer:
+
+    # thumb keys, fanned below main
+    thumbfan:
+      anchor:
+        ref: thumbs_inner_secondary
+        rotate: 20
+        shift: [-70, -75]
+      rows:
+        main:
+      columns:
+        mod1:
+          rotate: 30
+        mod2:
+          rotate: -7
+          stagger: -1
+          spread: cx+3
+        mod3:
+          rotate: -7
+          stagger: -1
+          spread: cx+3
+        mod4:
+          rotate: -7
+          stagger: -1
+          spread: cx+3
+
+outlines:
+  exports:
+    raw:
+      - type: keys
+        side: both
+        size: [1cx-0.5, 1cy-0.5]
+      - type: rectangle
+        size: [250, 50]
+#        anchor: main_outer_top
