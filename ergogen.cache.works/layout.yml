@@ -8,12 +8,14 @@ points:
       1u: true
   mirror:
     ref: thumbs_outer_secondary
-    distance: 40
+    distance: 30
 
   zones:
     # main section is for the alpha keys
     main:
       rotate: -20
+      key:
+        bind: [0,1,0,1]
       rows:
         bottom:
         home:
@@ -34,10 +36,6 @@ points:
         ref: main_inner_bottom
         shift: [15, -20]
         rotate: -25
-      key:
-        tags:
-          1u: false
-          15u: true
       rows:
         primary:
           width: 1.5
@@ -49,7 +47,15 @@ points:
         secondary:
       columns:
         inner:
+          rows:
+            primary:
+              bind: [0, 5, 2, 0] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
+            secondary:
+              bind: [0, 2, 0, 0]
         outer:
+          rows:
+            primary:
+              bind: [0, 5, 0, 0] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
 
     # thumb keys, fanned below main
     thumbfan:
@@ -63,24 +69,50 @@ points:
         mod1:
           rotate: 30
         mod2:
-          rotate: -7
+          rotate: -6
           stagger: -1
           spread: cx+3
         mod3:
-          rotate: -7
+          rotate: -6
           stagger: -1
           spread: cx+3
         mod4:
-          rotate: -7
-          stagger: -1
+          rotate: -9
+          stagger: -2
           spread: cx+3
 
 outlines:
   exports:
-    raw:
+    # outlines for just the keycaps
+    keys1u:
       - type: keys
         side: both
-        size: [1cx-0.5, 1cy-0.5]
-      - type: rectangle
-        size: [250, 50]
-#        anchor: main_outer_top
+        size: [1cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
+        bound: false    
+        tags: [1u]
+    
+    keys15u:
+      - type: keys
+        side: both
+        size: [1.5cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
+        bound: false    
+        tags: [15u]
+    keys: [keys1u, keys15u]
+
+    # outlines for the overall shape, using bound keys to fill in gaps
+    outlines:
+      - type: keys
+        side: both
+        size: [1cx - 0.5 , 1cx -0.5]
+      # - type: rectangle
+      #   size: [96.5, 40]
+      #   anchor:
+      #     ref: board_index_home
+      #     rotate: -25
+      #     shift: [-49.5, -12]
+
+    cutout:
+      - type: outline
+        name: outlines
+        fillet: 2
+
