@@ -66,20 +66,28 @@ points:
       rows:
         main:
       columns:
-        mod1:
+        mod4:
           rotate: 30
-        mod2:
-          rotate: -6
-          stagger: -1
-          spread: cx+3
+          key:
+            bind: [0, 3, 0, 0]
         mod3:
           rotate: -6
           stagger: -1
           spread: cx+3
-        mod4:
+          key:
+            bind: [0, 3, 0, 3]
+        mod2:
+          rotate: -6
+          stagger: -1
+          spread: cx+3
+          key:
+            bind: [0, 3, 0, 3]
+        mod1:
           rotate: -9
           stagger: -2
           spread: cx+3
+          key:
+            bind: [0, 0, 0, 3]
 
 outlines:
   exports:
@@ -115,4 +123,3 @@ outlines:
       - type: outline
         name: outlines
         fillet: 2
-
