@@ -91,33 +91,77 @@ points:
 
 outlines:
   exports:
-    # outlines for just the keycaps
+
+    # outlines for just the keycaps, not bound because we want to see the actual keycap sizes
     keys1u:
       - type: keys
         side: both
         size: [1cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
-        bound: false    
-        tags: [1u]
-    
+        bound: false
+        tags: [1u]    
     keys15u:
       - type: keys
         side: both
         size: [1.5cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
-        bound: false    
+        bound: false
         tags: [15u]
     keys: [keys1u, keys15u]
 
-    # outlines for the overall shape, using bound keys to fill in gaps
+    # NOTE: not sure if this will be needed, maybe just delete it
+    keyblocks:
+      - type: keys
+        side: both
+        bound: true
+        size: [1cx - 0.5 , 1cx -0.5]
+
+    # outlines for the overall shape, using bound keys to fill in gaps, plus
+    # rectangles to shape the containing outline
     outlines:
       - type: keys
         side: both
         size: [1cx - 0.5 , 1cx -0.5]
-      # - type: rectangle
-      #   size: [96.5, 40]
-      #   anchor:
-      #     ref: board_index_home
-      #     rotate: -25
-      #     shift: [-49.5, -12]
+        bound: true
+
+      # connect the key main key zones
+      - type: rectangle
+        size: [168, 65]
+        mirror: true
+        anchor:
+          ref: main_outer_bottom
+          rotate: 0
+          shift: [-15, -15]
+      # connect top area of main zones - removing the point, flat area in between
+      - type: rectangle
+        size: [60, 50]
+        mirror: true
+        anchor:
+          ref: main_inner_bottom
+          rotate: 20
+          shift: [0, 0]
+      # connect main thumb top areas
+      - type: rectangle
+        size: [50, 60]
+        mirror: true
+        anchor:
+          ref: thumbs_outer_primary
+          rotate: 0
+          shift: [-15, -15]
+      # connect main thumb bottom areas
+      - type: rectangle
+        size: [63, 50]
+        anchor:
+          ref: thumbs_outer_primary
+          rotate: -45
+          shift: [-16, -15]
+
+      # connect the thumbfans zones to the main zones above
+      - type: rectangle
+        size: [80, 52]
+        mirror: true
+        anchor:
+          ref: thumbfan_mod4_main
+          rotate: 0
+          shift: [-24, -15]
 
     cutout:
       - type: outline
