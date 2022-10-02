@@ -88,10 +88,13 @@ points:
           rows:
             bottom:
               column_net: P1
+              bind: [0,80,0,0]
             home:
               column_net: P2
+              bind: [0,50,0,0]
             top:
               column_net: P3
+              bind: [0,40,0,0]
 
     # primary thumb keys
     thumbs:
@@ -112,15 +115,15 @@ points:
         inner:
           rows:
             primary:
-              bind: [0, 5, 2, 0] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
+              bind: [5, 5, 2, 6] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
               column_net: P3
             secondary:
-              bind: [0, 2, 0, 0]
+              bind: [0, 2, 0, 15]
               column_net: P3
         outer:
           rows:
             primary:
-              bind: [0, 5, 0, 0] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
+              bind: [0, 5, 0, 6] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
               column_net: P3
             secondary:
               column_net: P3
@@ -138,7 +141,7 @@ points:
           rotate: 30
           rows:
             main:
-              bind: [0, 3, 0, 0]
+              bind: [32, 3, 1, 1]
               column_net: P3
         mod3:
           rotate: -6
@@ -146,7 +149,7 @@ points:
           spread: cx+3
           rows:
             main:
-              bind: [0, 3, 0, 3]
+              bind: [20, 3, 1, 4]
               column_net: P3
         mod2:
           rotate: -6
@@ -154,7 +157,7 @@ points:
           spread: cx+3
           rows:
             main:
-              bind: [0, 3, 0, 3]
+              bind: [10, 3, 1, 3]
               column_net: P3
         mod1:
           rotate: -9
@@ -162,7 +165,7 @@ points:
           spread: cx+3
           rows:
             main:
-              bind: [0, 3, 2, 3]
+              bind: [10, 20, 1, 3]
               column_net: P3
 
 outlines:
@@ -197,45 +200,14 @@ outlines:
         side: both
         size: [1cx - 0.5 , 1cx -0.5]
         bound: true
-      # connect the key main key zones
-      - type: rectangle
-        size: [168, 65]
-        mirror: true
-        anchor:
-          ref: main_outer_bottom
-          rotate: 0
-          shift: [-15, -15]
       # connect top area of main zones - removing the point, flat area in between
       - type: rectangle
-        size: [60, 50]
+        size: [60, 40]
         mirror: true
         anchor:
           ref: main_inner_bottom
           rotate: 20
           shift: [0, 0]
-      # connect main thumb top areas
-      - type: rectangle
-        size: [50, 60]
-        mirror: true
-        anchor:
-          ref: thumbs_outer_primary
-          rotate: 0
-          shift: [-15, -15]
-      # connect main thumb bottom areas
-      - type: rectangle
-        size: [63, 50]
-        anchor:
-          ref: thumbs_outer_primary
-          rotate: -45
-          shift: [-16, -15]
-      # connect the thumbfans zones to the main zones above
-      - type: rectangle
-        size: [80, 52]
-        mirror: true
-        anchor:
-          ref: thumbfan_mod4_main
-          rotate: 0
-          shift: [-24, -15]
 
     cutout:
       - type: outline
@@ -255,5 +227,5 @@ pcbs:
         type: promicro_pretty
         anchor:
           ref: main_inner_top
-          shift: [50, 20]
+          shift: [30, 0]
           rotate: -70
