@@ -7,25 +7,25 @@ points:
     tags:
       1u: true
     footprints:
-        choc_hotswap:
-          type: choc
-          nets:
-            from: =column_net
-            to: GND
-          params:
-              keycaps: true
-              reverse: true
-              hotswap: true
-        choc:
-          type: choc
-          anchor:
-            rotate: 180
-          nets:
-            from: =column_net
-            to: GND
-          params:
-              keycaps: true
-              reverse: true
+      choc_hotswap:
+        type: choc
+        nets:
+          from: =column_net
+          to: GND
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+      choc:
+        type: choc
+        anchor:
+          rotate: 180
+        nets:
+          from: =column_net
+          to: GND
+        params:
+          keycaps: true
+          reverse: true
 
   mirror:
     ref: thumbs_outer_secondary
@@ -43,13 +43,55 @@ points:
         top:
       columns:
         outer:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
         pinkie:
           spread: cx # choc horiz spacing
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
         ring:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
         middle:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
         index:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
         inner:
           spread: cx # choc horiz spacing
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
 
     # primary thumb keys
     thumbs:
@@ -71,12 +113,17 @@ points:
           rows:
             primary:
               bind: [0, 5, 2, 0] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
+              column_net: P3
             secondary:
               bind: [0, 2, 0, 0]
+              column_net: P3
         outer:
           rows:
             primary:
               bind: [0, 5, 0, 0] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
+              column_net: P3
+            secondary:
+              column_net: P3
 
     # thumb keys, fanned below main
     thumbfan:
@@ -89,26 +136,34 @@ points:
       columns:
         mod4:
           rotate: 30
-          key:
-            bind: [0, 3, 0, 0]
+          rows:
+            main:
+              bind: [0, 3, 0, 0]
+              column_net: P3
         mod3:
           rotate: -6
           stagger: -1
           spread: cx+3
-          key:
-            bind: [0, 3, 0, 3]
+          rows:
+            main:
+              bind: [0, 3, 0, 3]
+              column_net: P3
         mod2:
           rotate: -6
           stagger: -1
           spread: cx+3
-          key:
-            bind: [0, 3, 0, 3]
+          rows:
+            main:
+              bind: [0, 3, 0, 3]
+              column_net: P3
         mod1:
           rotate: -9
           stagger: -2
           spread: cx+3
-          key:
-            bind: [0, 0, 0, 3]
+          rows:
+            main:
+              bind: [0, 3, 2, 3]
+              column_net: P3
 
 outlines:
   exports:
@@ -142,7 +197,6 @@ outlines:
         side: both
         size: [1cx - 0.5 , 1cx -0.5]
         bound: true
-
       # connect the key main key zones
       - type: rectangle
         size: [168, 65]
@@ -174,7 +228,6 @@ outlines:
           ref: thumbs_outer_primary
           rotate: -45
           shift: [-16, -15]
-
       # connect the thumbfans zones to the main zones above
       - type: rectangle
         size: [80, 52]
@@ -188,3 +241,19 @@ outlines:
       - type: outline
         name: outlines
         fillet: 2
+
+pcbs:
+  elv:
+    outlines:
+      board:
+        outline: cutout
+      keycaps:
+        outline: keys
+        layer: Eco1.User
+    footprints:
+      promicro:
+        type: promicro_pretty
+        anchor:
+          ref: main_inner_top
+          shift: [50, 20]
+          rotate: -70
