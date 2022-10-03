@@ -1,0 +1,229 @@
+# Note: copy/paste the YAML below into the editor at https://ergogen.cache.works/
+
+points:
+  # apply props to all keys
+  key:
+    padding: cy # global choc vertical spacing
+    spread: cx
+    tags:
+      1u: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        nets:
+          from: =column_net
+          to: GND
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+      choc:
+        type: choc
+        anchor:
+          rotate: 180
+        nets:
+          from: =column_net
+          to: GND
+        params:
+          keycaps: true
+          reverse: true
+
+  mirror:
+    ref: thumbs_secondary_aux
+    distance: 30
+
+  zones:
+    # main section is for the alpha keys
+    main:
+      rotate: -20
+      key:
+        bind: [0,1,0,1]
+      rows:
+        bottom:
+        home:
+        top:
+      columns:
+        outer:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
+        pinkie:
+          spread: cx # choc horiz spacing
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
+        ring:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
+        middle:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
+        index:
+          rows:
+            bottom:
+              column_net: P1
+            home:
+              column_net: P2
+            top:
+              column_net: P3
+        inner:
+          spread: cx # choc horiz spacing
+          rows:
+            bottom:
+              column_net: P1
+              bind: [0,35,0,0]
+            home:
+              column_net: P2
+              bind: [0,35,0,0]
+            top:
+              column_net: P3
+              bind: [0,35,0,0]
+
+    # primary thumb keys, the whole zone is heavily rotated
+    # because the width of the primary keys is longer
+    thumbs:
+      anchor:
+        ref: main_inner_bottom
+        shift: [-cx*3.6, -cy-1]
+      rows:
+        aux:
+          rotate: 90
+          padding: cx
+        main:
+      columns:
+        mod4:
+          row_overrides:
+            main:
+              column_net: P3
+              bind: [5,3,0,0]
+        mod3:
+          row_overrides:
+            main:
+              column_net: P3
+              bind: [5,3,0,0]
+        mod2:
+          row_overrides:
+            main:
+              column_net: P3
+              bind: [5,3,0,0]
+        mod1:
+          rotate: -25
+          stagger: -5
+          spread: cx+4
+          row_overrides:
+            main:
+              column_net: P3
+              bind: [15,0,0,10]
+        primary:
+          rotate: -20
+          stagger: -cy/3
+          spread: cx+3
+          row_overrides:
+            main:
+              rotate: 90
+              width: 1.5
+              padding: cx+5
+              column_net: P3
+              bind: [0,0,0,0]
+              tags:
+                15u: true
+                1u: false
+            aux:
+              column_net: P3
+        secondary:
+          #rotate: -10
+          stagger: -8
+          #spread: cx+6
+          row_overrides:
+            main:
+              rotate: 90
+              width: 1.5
+              padding: cx+5
+              column_net: P3
+              bind: [50,50,0,0]
+              tags:
+                15u: true
+                1u: false
+            aux:
+              column_net: P3
+
+
+outlines:
+  exports:
+
+    # outlines for just the keycaps, not bound because we want to see the actual keycap sizes
+    keys1u:
+      - type: keys
+        side: both
+        size: [1cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
+        bound: false
+        tags: [1u]    
+    keys15u:
+      - type: keys
+        side: both
+        size: [1.5cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
+        bound: false
+        tags: [15u]
+    keys: [keys1u, keys15u]
+
+    # view of bound keys, mostly just for use in Ergogen when adjusting key bind values
+    keyblocks:
+      - type: keys
+        side: both
+        bound: true
+        size: [1cx - 0.5 , 1cx -0.5]
+
+    # outlines for the overall PCB shape, using bound keys to fill in gaps, plus
+    # adding extra rectangles to shape the containing outline
+    outlines:
+      - type: keys
+        side: both
+        size: [1cx - 0.5 , 1cx -0.5]
+        bound: true
+      # connect top area of main zones - removing the point, flat area in between
+      - type: rectangle
+        size: [60, 40]
+        mirror: true
+        anchor:
+          ref: main_inner_bottom
+          rotate: 20
+          shift: [0, 0]
+    # final PCB shape with fillet
+    cutout:
+      - type: outline
+        name: outlines
+        fillet: 2
+
+pcbs:
+  elv:
+    outlines:
+      board:
+        outline: cutout
+      keycaps:
+        outline: keys
+        layer: Eco1.User
+    footprints:
+      promicro:
+        type: promicro_pretty
+        anchor:
+          ref: main_inner_top
+          shift: [30, 0]
+          rotate: -70
