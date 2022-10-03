@@ -4,6 +4,7 @@ points:
   # apply props to all keys
   key:
     padding: cy # global choc vertical spacing
+    spread: cx
     tags:
       1u: true
     footprints:
@@ -28,7 +29,7 @@ points:
           reverse: true
 
   mirror:
-    ref: thumbs_outer_secondary
+    ref: thumbs_secondary_outer
     distance: 30
 
   zones:
@@ -96,76 +97,70 @@ points:
               column_net: P3
               bind: [0,40,0,0]
 
-    # primary thumb keys
+    # primary thumb keys, the whole zone is heavily rotated
+    # because the width of the primary keys is longer
     thumbs:
       anchor:
         ref: main_inner_bottom
-        shift: [15, -20]
-        rotate: -25
+        shift: [32, -30]
+        rotate: 70
       rows:
-        primary:
-          width: 1.5
-          padding: 1.5cy-3
-          rotate: 90
-          tags:
-            15u: true
-            1u: false
-        secondary:
-      columns:
-        inner:
-          rows:
-            primary:
-              bind: [5, 5, 2, 6] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
-              column_net: P3
-            secondary:
-              bind: [0, 2, 0, 15]
-              column_net: P3
         outer:
+        inner:
+      columns:
+        primary:
+          key:
+            width: 1.5
+            bind: [10, 5, 0, 5]
+            tags:
+              15u: true
+              1u: false
           rows:
-            primary:
-              bind: [0, 5, 0, 6] # NOTE: these bind values are incorporating the 90deg rotation of the primary keys
+            inner:
               column_net: P3
-            secondary:
+            outer:
+              column_net: P3
+        secondary:
+          spread: cx*1.25
+          rows:
+            inner:
+              column_net: P3
+            outer:
               column_net: P3
 
     # thumb keys, fanned below main
     thumbfan:
       anchor:
-        ref: thumbs_inner_secondary
-        rotate: 20
-        shift: [-70, -75]
+        ref: main_outer_bottom
+        rotate: 10
+        shift: [30, -34]
       rows:
         main:
+            bind: [0, 5, 0, 0]
+
       columns:
         mod4:
-          rotate: 30
           rows:
             main:
-              bind: [32, 3, 1, 1]
+              bind: [20, 1, 0, 1]
               column_net: P3
         mod3:
-          rotate: -6
-          stagger: -1
-          spread: cx+3
+          spread: cx
           rows:
             main:
-              bind: [20, 3, 1, 4]
+              bind: [20, 1, 0, 0]
               column_net: P3
         mod2:
-          rotate: -6
-          stagger: -1
-          spread: cx+3
+          spread: cx
           rows:
             main:
-              bind: [10, 3, 1, 3]
+              bind: [15, 1, 0, 0]
               column_net: P3
         mod1:
-          rotate: -9
-          stagger: -2
-          spread: cx+3
+          spread: cx
           rows:
             main:
-              bind: [10, 20, 1, 3]
+              bind: [15, 30, 0, 0]
               column_net: P3
 
 outlines:
@@ -186,15 +181,15 @@ outlines:
         tags: [15u]
     keys: [keys1u, keys15u]
 
-    # NOTE: not sure if this will be needed, maybe just delete it
+    # view of bound keys, mostly just for use in Ergogen when adjusting key bind values
     keyblocks:
       - type: keys
         side: both
         bound: true
         size: [1cx - 0.5 , 1cx -0.5]
 
-    # outlines for the overall shape, using bound keys to fill in gaps, plus
-    # rectangles to shape the containing outline
+    # outlines for the overall PCB shape, using bound keys to fill in gaps, plus
+    # adding extra rectangles to shape the containing outline
     outlines:
       - type: keys
         side: both
@@ -208,7 +203,7 @@ outlines:
           ref: main_inner_bottom
           rotate: 20
           shift: [0, 0]
-
+    # final PCB shape with fillet
     cutout:
       - type: outline
         name: outlines
