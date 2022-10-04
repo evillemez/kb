@@ -16,16 +16,6 @@ points:
           keycaps: true
           reverse: true
           hotswap: true
-      choc:
-        type: choc
-        anchor:
-          rotate: 180
-        nets:
-          from: =column_net
-          to: GND
-        params:
-          keycaps: true
-          reverse: true
 
   mirror:
     ref: thumbs_primary_main
@@ -213,5 +203,5 @@ pcbs:
         type: promicro_pretty
         anchor:
           ref: main_inner_top
-          shift: [30, 0]
+          shift: [26, 0]
           rotate: -70
