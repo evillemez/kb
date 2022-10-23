@@ -16,6 +16,13 @@ points:
           keycaps: true
           reverse: true
           hotswap: true
+      diode:
+        type: diode
+        anchor:
+          shift: [0, -4.7]
+        nets:
+          from: =row_net
+          to: =colrow
 
   mirror:
     ref: thumbs_primary_main
@@ -29,64 +36,51 @@ points:
         bind: [0,1,0,1]
       rows:
         bottom:
+          row_net: P19
+          mirror.row_net: P4
         home:
+          row_net: P20
+          mirror.row_net: P3
         top:
+          row_net: P21
+          mirror.row_net: P2
       columns:
         outer:
-          rows:
-            bottom:
-              column_net: P1
-            home:
-              column_net: P2
-            top:
-              column_net: P3
+          spread: cx # choc horiz spacing
+          key:
+            column_net: P15
+            mirror.column_net: P6
         pinkie:
           spread: cx # choc horiz spacing
-          rows:
-            bottom:
-              column_net: P1
-            home:
-              column_net: P2
-            top:
-              column_net: P3
+          key:
+            column_net: P14
+            mirror.column_net: P7
         ring:
           spread: cx # choc horiz spacing
-          rows:
-            bottom:
-              column_net: P1
-            home:
-              column_net: P2
-            top:
-              column_net: P3
+          key:
+            column_net: P16
+            mirror.column_net: P8
         middle:
           spread: cx # choc horiz spacing
-          rows:
-            bottom:
-              column_net: P1
-            home:
-              column_net: P2
-            top:
-              column_net: P3
+          key:
+            column_net: P10
+            mirror.column_net: P9
         index:
           spread: cx # choc horiz spacing
-          rows:
-            bottom:
-              column_net: P1
-            home:
-              column_net: P2
-            top:
-              column_net: P3
+          key:
+            column_net: P9
+            mirror.column_net: P10
         inner:
           spread: cx # choc horiz spacing
-          rows:
+          key:
+            column_net: P8
+            mirror.column_net: P16
+          rows:          
             bottom:
-              column_net: P1
               bind: [0,60,0,0]
             home:
-              column_net: P2
               bind: [0,35,0,0]
             top:
-              column_net: P3
               bind: [0,35,0,0]
 
     # primary thumb keys, the whole zone is heavily rotated
@@ -97,23 +91,28 @@ points:
         shift: [-cx*3.5, -cy-1]
       rows:
         main:
+          row_net: P17
+          mirror.row_net: P5
       columns:
         mod4:
           rows:
             main:
-              column_net: P3
+              column_net: P15
+              mirror.column_net: P6
               bind: [5,3,0,0]
         mod3:
           spread: cx
           rows:
             main:
-              column_net: P3
+              column_net: P14
+              mirror.column_net: P7
               bind: [5,3,0,0]
         mod2:
           spread: cx
           rows:
             main:
-              column_net: P3
+              column_net: P16
+              mirror.column_net: P8
               bind: [5,3,0,0]
         mod1:
           spread: cx+2
@@ -121,7 +120,8 @@ points:
           rotate: -10
           rows:
             main:
-              column_net: P3
+              column_net: P10
+              mirror.column_net: P9
               bind: [5,3,0,5]
         primary:
           rotate: 70
@@ -130,7 +130,8 @@ points:
           rows:
             main:
               width: 1.5
-              column_net: P3
+              column_net: P9
+              mirror.column_net: P10
               bind: [10,15,0,5]
               tags:
                 15u: true
@@ -141,7 +142,8 @@ points:
           spread: cx+8
           rows:
             main:
-              column_net: P3
+              column_net: P8
+              mirror.column_net: P16
               bind: [0,0,0,0]
 
 outlines:
@@ -200,7 +202,7 @@ pcbs:
         layer: Eco1.User
     footprints:
       promicro:
-        type: promicro_pretty
+        type: promicro
         anchor:
           ref: main_inner_top
           shift: [26, 0]
