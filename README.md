@@ -1,3 +1,6 @@
+> NOTE: Next step is to copy `input/elv.yml` to the samaklava project and try the 
+> automated build process and autorouting.
+
 This is a working directory for a custom keyboard project.  I'm mostly following along with this video (https://www.youtube.com/watch?v=M_VuXVErD6E&t=74s) and learning/adapting as I go.
 
 * `input/` - config files for keyboards to use with ergogen. Use https://ergogen.cache.works to view/edit
