@@ -23,3 +23,15 @@ After that, you should be able to run ergogen within the container to build any 
 Use ergogen.cache.works to more easily edit the layout files in `input/` and see changes.  Just copy/paste them back to commit changes.
 
 To run ergogen locally, connect to the container and run it: `node ergogen/src/cli.js input/elv.yml -o output/elv`
+
+## References
+
+Videos (Ben Vallack)
+
+* https://www.youtube.com/watch?v=vr8LkjsRqZs
+* https://www.youtube.com/watch?v=UKfeJrRIcxw
+
+Misc links:
+
+* https://switchandclick.com/how-to-test-a-keyboard-pcb/
+* https://wiki.ai03.com/books/pcb-design/page/pcb-guide-part-2---beginning-the-project
