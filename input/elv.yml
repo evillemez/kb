@@ -10,8 +10,8 @@ points:
       choc_hotswap:
         type: choc
         nets:
-          from: =column_net
-          to: GND
+          from: =colrow
+          to: =column_net
         params:
           keycaps: true
           reverse: true
@@ -19,10 +19,13 @@ points:
       diode:
         type: diode
         anchor:
-          shift: [0, -4.7]
+          shift: [ 0, -4.5 ]
         nets:
-          from: =row_net
-          to: =colrow
+          from: =colrow
+          to: =row_net
+        params:
+          via_in_pad: true
+          through_hole: false
 
   mirror:
     ref: thumbs_primary_main
@@ -207,3 +210,14 @@ pcbs:
           ref: main_inner_top
           shift: [26, 0]
           rotate: -70
+      reset:
+        type: button
+        anchor:
+          ref: main_inner_top
+          shift: [40, -35]
+          rotate: -70
+        params:
+          variant: 2_pin_th
+        nets:
+          from: GND
+          to: RST
