@@ -8,6 +8,10 @@ units:
   px: kx + 1
   py: ky + 1
 points:
+  rotate: -17.5
+  mirror: &mirror
+    ref: main_inner_top
+    distance: 55
   zones:
     main:
       key:
