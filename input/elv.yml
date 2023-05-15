@@ -5,8 +5,8 @@ units:
   kx: cx
   ky: cy
   # for padding between keycaps
-  px: kx + 1
-  py: ky + 1
+  px: kx + 4
+  py: ky + 4
 points:
   rotate: -17.5
   mirror: &mirror
@@ -57,3 +57,48 @@ points:
             splay: 30
             spread: kx+8
             stagger: 6
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [px, py]
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5, ky-0.5]
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      # starting at top-left of board, going counter clockwise
+      # and shifting points to edge of key
+      points:
+        - ref: main_outer_top
+          shift: [-0.5px, 0.5py]
+        - ref: main_outer_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: thumb_mod4_main
+          shift: [-0.5px, -0.5py]
+        - ref: thumb_mod1_main
+          shift: [-0.5px, -0.5py]
+        - ref: thumb_primary_main
+          shift: [-0.75px, -0.75py]
+        - ref: mirror_thumb_primary_main
+          shift: [-0.75px, -0.75py]
+        - ref: mirror_thumb_mod1_main
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_thumb_mod4_main
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_main_outer_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_main_outer_top
+          shift: [-0.5px, 0.5py]
+        - ref: mirror_main_inner_top
+          shift: [-0.5px, 0.5py]
+        - ref: main_inner_top
+          shift: [-0.5px, 0.5py]
+
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
