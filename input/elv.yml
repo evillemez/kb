@@ -14,6 +14,9 @@ points:
     distance: 55
   zones:
     main:
+      anchor:
+        # for positioning in KiCad
+        shift: [100, -100]
       key:
         padding: 1ky
         spread: 1kx
@@ -97,8 +100,30 @@ outlines:
           shift: [-0.5px, 0.5py]
         - ref: main_inner_top
           shift: [-0.5px, 0.5py]
-
   combo:
     - name: board
     - operation: subtract
       name: keys
+pcbs:
+  elv:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        adjust:
+          shift: [0, -5]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
