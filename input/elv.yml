@@ -11,7 +11,7 @@ points:
   rotate: -17.5
   mirror: &mirror
     ref: main_inner_top
-    distance: 55
+    distance: 50
   zones:
     main:
       anchor:
@@ -128,3 +128,11 @@ pcbs:
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
+          shift: [0,-7]
+          rotate: -90
