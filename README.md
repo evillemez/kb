@@ -5,13 +5,13 @@ This is a working directory for a custom keyboard project.  I'm mostly following
 
 * `input/` - config files for keyboards to use with ergogen. Use https://ergogen.cache.works to view/edit
 * `output/` - built files from running ergogen
-* `ergogen/` - git clone of Ben Vallacks ergogen fork: git@github.com:benvallack/ergogen.git
+* `ergogen/` - git clone of ergogen repo
 
 ## Initial setup
 
 Getting setup initially, you need to do the following:
 
-* clone the ergogen repo, or a fork of it: `git clone git@github.com:benvallack/ergogen.git`
+* clone the ergogen repo, or a fork of it: `git clone git@github.com:ergogen/ergogen.git`
 * build the docker container for the general build environment: `make build`
 * run the container: `make shell`
 * install the ergogen deps: `cd ergogen && yarn install`
@@ -25,6 +25,8 @@ Use ergogen.cache.works to more easily edit the layout files in `input/` and see
 To run ergogen locally, connect to the container and run it: `node ergogen/src/cli.js input/elv.yml -o output/elv`
 
 ## References
+
+The one guide to rule them all: https://flatfootfox.com/ergogen-introduction/
 
 Videos (Ben Vallack)
 
