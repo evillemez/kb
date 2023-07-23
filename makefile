@@ -18,4 +18,4 @@ shell:
 ###
 
 gen:
-	node ergogen/src/cli.js input/elv.yml -o output/elv
+	ergogen/src/cli.js keyboard/ -o output/keyboard/

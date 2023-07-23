@@ -129,7 +129,9 @@ pcbs:
           from: "{{colrow}}"
           to: "{{row_net}}"
       promicro:
-        what: promicro
+        what: "infused-kim/nice_nano_pretty"
+        # traces: true
+        # show_labels: false
         params:
           orientation: "down"
         where:
