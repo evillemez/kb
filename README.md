@@ -11,7 +11,7 @@ This is a working directory for a custom keyboard project.  I'm mostly following
 
 Getting setup initially, you need to do the following:
 
-* clone the ergogen repo, or a fork of it: `git clone git@github.com:ergogen/ergogen.git`
+* initialize submodules recursively, and/or run `make init`
 * build the docker container for the general build environment: `make build`
 * run the container: `make shell`
 * install the ergogen deps: `cd ergogen && yarn install`
