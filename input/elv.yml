@@ -11,7 +11,7 @@ points:
   rotate: -17.5
   mirror: &mirror
     ref: main_inner_top
-    distance: 50
+    distance: 45
   zones:
     main:
       anchor:
@@ -37,7 +37,7 @@ points:
         spread: 1kx        
       anchor:
         ref: main_outer_bottom
-        shift: [1.5kx, -ky-2]
+        shift: [1.33kx, -ky]
       rows:
         main:
       columns:
@@ -52,7 +52,7 @@ points:
         primary:
           key:
             splay: 70
-            spread: kx+4
+            spread: kx+5
             stagger: 1
             width: 1.5kx
         aux:
