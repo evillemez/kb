@@ -151,16 +151,14 @@ pcbs:
       #     shift: [0, 0]
       #     rotate: 0
       
-      oled:
-        what: oled
+      niceview:
+        what: infused-kim/nice_view
         params:
           side: "F"
-          SDA: P2
-          SCL: P3
         where:
           ref.aggregate.parts: [main_inner_home, mirror_main_inner_home]
-          shift: [-6, -2]
-          rotate: 90
+          shift: [0, 12]
+          rotate: 0
       reset:
         what: button
         params:
