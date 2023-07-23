@@ -1,3 +1,6 @@
 [submodule "ergogen"]
 	path = ergogen
 	url = git@github.com:evillemez/ergogen.git
+[submodule "keyboard/footprints/kb_ergogen_fp"]
+	path = keyboard/footprints/infused-kim
+	url = git@github.com:infused-kim/kb_ergogen_fp.git

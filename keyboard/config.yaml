@@ -138,6 +138,9 @@ pcbs:
           ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
           shift: [0, 0]
           rotate: -90
+
+      # this one was a little confusing for me to use... sticking with promicro
+      # because that's more commonly found in tutorials
       # nicenano:
       #   what: infused-kim/nice_nano_pretty
       #   params:
@@ -147,6 +150,7 @@ pcbs:
       #     ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
       #     shift: [0, 0]
       #     rotate: 0
+      
       oled:
         what: oled
         params:
