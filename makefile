@@ -6,6 +6,9 @@
 build:
 	docker build -t elv-kb .
 
+init:
+	git submodule update --init --recursive
+
 # connect to shell in container from host
 shell:
 	docker run --rm -it -v $(shell pwd):/kb elv-kb
