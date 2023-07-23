@@ -96,9 +96,9 @@ outlines:
           shift: [-0.5px, -0.5py]
         - ref: mirror_main_outer_top
           shift: [-0.5px, 0.5py]
-        - ref: mirror_main_inner_top
+        - ref: mirror_main_index_top
           shift: [-0.5px, 0.5py]
-        - ref: main_inner_top
+        - ref: main_index_top
           shift: [-0.5px, 0.5py]
   combo:
     - name: board
@@ -134,5 +134,45 @@ pcbs:
           orientation: "down"
         where:
           ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
-          shift: [0,-7]
+          shift: [0, 0]
           rotate: -90
+      oled:
+        what: oled
+        params:
+          side: "F"
+          SDA: P2
+          SCL: P3
+        where:
+          ref.aggregate.parts: [main_inner_home, mirror_main_inner_home]
+          shift: [-6, -2]
+          rotate: 90
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where:
+          ref.aggregate.parts: [main_index_top, mirror_main_index_top]
+          shift: [-16, 9]
+      powerswitch:
+        what: slider
+        where:
+          ref.aggregate.parts: [main_index_top, mirror_main_index_top]
+          shift: [16, 9]
+        params:
+          from: RAW
+          to: BAT
+          side: B          
+      # I'm taking this from what I've seen in other people's files in discord/github
+      # and just hoping that it's correct.  Most of this I'm taking from:
+      # https://github.com/MvEerd/ergogen-gui/blob/6cfc0b54f950cfcb09a2a54a10c3002e067cc14f/src/examples/plank.ts#L168
+      battery:
+        what: jstph
+        params:
+          pos: BAT
+          neg: GND
+          side: B
+        where:
+          ref.aggregate.parts: [main_index_top, mirror_main_index_top]
+          shift: [24, 9]
+          rotate: 90
