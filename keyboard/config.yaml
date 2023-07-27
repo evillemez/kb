@@ -24,8 +24,14 @@ points:
         outer:
         pinky:
         ring:
+          key:
+            spread: u
         middle:
+          key:
+            spread: u
         index:
+          key:
+            spread: u
         inner:
       rows:
         bottom:
@@ -37,7 +43,7 @@ points:
         spread: 1kx        
       anchor:
         ref: main_outer_bottom
-        shift: [1.33kx, -ky]
+        shift: [1.5kx, -ky]
       rows:
         main:
       columns:
