@@ -5,8 +5,8 @@ units:
   kx: cx
   ky: cy
   # for padding between keycaps
-  px: kx + 4
-  py: ky + 4
+  px: kx + 2
+  py: ky + 2
 points:
   rotate: -17.5
   mirror: &mirror
@@ -136,7 +136,7 @@ pcbs:
           orientation: "down"
         where:
           ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
-          shift: [0, 0]
+          shift: [0, -2]
           rotate: -90
 
       # this one was a little confusing for me to use... sticking with promicro
@@ -157,7 +157,7 @@ pcbs:
           side: F
         where:
           ref.aggregate.parts: [main_inner_home, mirror_main_inner_home]
-          shift: [0, 12]
+          shift: [0, 10]
           rotate: 0
       reset:
         what: button
@@ -166,7 +166,7 @@ pcbs:
           to: RST
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [-16, 9]
+          shift: [-16, 7]
       battery:
         what: jstph
         params:
@@ -175,7 +175,7 @@ pcbs:
           side: F
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [24, 9.5]
+          shift: [24, 8.5]
           rotate: -90
       powerswitch:
         what: slider
