@@ -22,21 +22,30 @@ points:
         spread: 1kx
       columns:
         outer:
+          key.column_net: P14
         pinky:
+          key.column_net: P16
         ring:
           key:
             spread: u
+            column_net: P10
         middle:
           key:
             spread: u
+            column_net: P7
         index:
           key:
             spread: u
+            column_net: P8
         inner:
+          key.column_net: P9
       rows:
         bottom:
+          row_net: P15
         home:
+          row_net: P18
         top:
+          row_net: P19
     thumb:
       key: 
         padding: 1ky
@@ -46,26 +55,33 @@ points:
         shift: [1.5kx, -ky]
       rows:
         main:
+          row_net: P20
       columns:
         mod4:
+          key.column_net: P14
         mod3:
+          key.column_net: P16
         mod2:
+          key.column_net: P10
         mod1:
           key:
             splay: -10
             spread: kx+2
             stagger: -2
+            column_net: P7
         primary:
           key:
             splay: 70
             spread: kx+5
             stagger: 1
             width: 1.5kx
+            column_net: P8
         aux:
           key:
             splay: 30
             spread: kx+8
             stagger: 6
+            column_net: P9
 outlines:
   raw:
     - what: rectangle
