@@ -12,7 +12,7 @@ Getting setup initially, you need to do the following:
 * initialize submodules recursively, and/or run `make init`
 * build the docker container for the general build environment: `make build`
 * run the container: `make shell`
-* install the ergogen deps from within the container: `cd ergogen && yarn install`
+* install the ergogen via `yarn` from within the container: `yarn install`
 
 After that, you should be able to run ergogen within the container to build they keyboard in `keyboard/`
 
@@ -23,6 +23,6 @@ Use ergogen.cache.works to more easily edit the `config.yml` file in `keyboard/`
 To run ergogen locally, connect to the container and run the ergogen command to generate the files:
 
 * `make shell` to connect to container
-* `make gen` to run ergogen and build the keyboard defined in `keyboard/`
+* `npm run build` to run ergogen and build the keyboard defined in `keyboard/`
 
 Inspect the makefile if you want the see the exact commands and arguments.

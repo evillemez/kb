@@ -13,9 +13,3 @@ init:
 shell:
 	docker run --rm -it -v $(shell pwd):/kb elv-kb
 
-###
-# container commands - run these from within the container
-###
-
-gen:
-	ergogen/src/cli.js keyboard/ -o output/keyboard/
