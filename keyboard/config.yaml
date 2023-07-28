@@ -42,10 +42,13 @@ points:
       rows:
         bottom:
           row_net: P15
+          mirror.row_net: P6
         home:
           row_net: P18
+          mirror.row_net: P5
         top:
           row_net: P19
+          mirror.row_net: P4
     thumb:
       key: 
         padding: 1ky
@@ -56,6 +59,7 @@ points:
       rows:
         main:
           row_net: P20
+          mirror.row_net: P0
       columns:
         mod4:
           key.column_net: P14
