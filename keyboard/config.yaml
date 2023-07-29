@@ -160,6 +160,12 @@ pcbs:
           # traces: true
           # show_labels: false
           orientation: "down"
+          P0: "DPD" # Display Data
+          P1: "DPC" # Display Clock
+          # GND
+          # GND
+          P2: "DPE" # Display CS (nice!view only) FIXME? ZPM default?
+
         where:
           ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
           shift: [0, -2]
@@ -181,6 +187,13 @@ pcbs:
         what: infused-kim/nice_view
         params:
           side: F
+          reverse: true
+          MOSI: DPD
+          SCK: DPC
+          CS: DPE
+          show_labels: false
+          jumpers_at_bottom: false
+
         where:
           ref.aggregate.parts: [main_inner_home, mirror_main_inner_home]
           shift: [0, 10]
