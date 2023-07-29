@@ -12,7 +12,7 @@ Getting setup initially, you need to do the following:
 * run the container: `make shell`
 * install the ergogen via `yarn` from within the container: `yarn install`
 
-After that, you should be able to run ergogen within the container to build they keyboard in `keyboard/`
+After that, you should be able to run ergogen within the container to build any of the keyboads defined in  `keyboards/`.
 
 ## Developing
 
