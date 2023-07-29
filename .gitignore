@@ -3,5 +3,3 @@
 node_modules/
 
 keyboard/output/**/*
-output/**/*
-!output/.gitkeep

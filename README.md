@@ -1,9 +1,7 @@
 This projects contains the definition and build environment for generating a custom keyboard using Ergogen.
 
-* `keyboard/` - config file for keyboard to use with ergogen. Use https://ergogen.cache.works to view/edit.  Submodule in here contains footprints from another repo.
-* `output/` - built files from running ergogen
-* `archive/` - previous attempts kept for reference, some using older versions of ergogen config, so not expected to work.
-* `ergogen/` - git submodule of ergogen repo
+* `keyboards/` - each directory here is a separate keyboard meant to be used as input for ergogen. There may be git submodules in some keyboard directories for side-loading ergogen footprints from other places.
+* `archive/` - previous attempts at experimenting with possible layouts. Kept for personal reference.  Some use older versions of the ergogen config, are none are expected to be complete or actually work.
 
 ## Initial setup
 
@@ -26,3 +24,16 @@ To run ergogen locally, connect to the container and run the ergogen command to 
 * `npm run build` to run ergogen and build the keyboard defined in `keyboard/`
 
 Inspect the makefile if you want the see the exact commands and arguments.
+
+## Resources & Prior Art
+
+Major thanks for, and inspiration from the following resources:
+
+* Ergogen:
+  * https://ergogen.xyz
+  * https://ergogen.cache.works
+* Build guide by FlatFootFox: https://flatfootfox.com/ergogen-introduction
+* Experiments in automatic build systems & autorouting:
+  * https://github.com/soundmonster/samoklava
+  * https://github.com/tbaumann/typematrix_split_ergogen
+  * https://github.com/ceoloide/corney-island

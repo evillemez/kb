@@ -11,8 +11,6 @@ rm -rf keyboard/output
 echo "\n\n>>>>>>>>> RUNNING ERGOGEN >>>>>>>>>>\n\n"
 ${container_cmd} run ${container_args} node:18.10-alpine3.16 /bin/sh -c "npm run debug"
 
-npm run debug
-
 # Define the boards to autoroute and export, and the plates
 boards="elv"
 plates="backplate frontplate controller_overlay"
