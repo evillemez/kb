@@ -119,7 +119,7 @@ outlines:
       name: switch_cutouts
       operation: subtract
 pcbs:
-  plank:
+  planck:
     outlines:
       main:
         outline: panel

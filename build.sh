@@ -11,7 +11,7 @@ keyboard_name=$1
 keyboard_path="keyboards/${keyboard_name}"
 
 # Cleanup the output folder or KiCad will error out
-rm -rf $(keyboard_path)/output
+rm -rf ${keyboard_path}/output
 
 # Generate unrouted PCBs with Ergogen (definition in package.json)
 echo "\n\n>>>>>>>>> RUNNING ERGOGEN >>>>>>>>>>\n\n"
@@ -58,7 +58,7 @@ do
     fi
     if [ -e ${keyboard_path}/output/pcbs/${board}_routed.kicad_pcb ]; then
         echo "DRC check"
-        ${container_cmd} run ${container_args} soundmonster/kicad-automation-scripts:latest /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/run_drc.py $GITHUB_WORKSPACE/${keyboard_path}/output/pcbs/${board}_routed.kicad_pcb $GITHUB_WORKSPACE/${keyboard_path}/output/pcbs/${board}_drc/
+        ${container_cmd} run ${container_args} soundmonster/kicad-automation-scripts:latest /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/run_drc.py ${keyboard_path}/output/pcbs/${board}_routed.kicad_pcb ${keyboard_path}/output/pcbs/${board}_drc/
         echo "Export Gerbers"
         mkdir -p ${keyboard_path}/output/gerbers/${board}
         ${container_cmd} run ${container_args} yaqwsx/kikit:v0.7 kikit fab ${fab} ${flags} ${keyboard_path}/output/pcbs/${board}_routed.kicad_pcb ${keyboard_path}/output/gerbers/${board}

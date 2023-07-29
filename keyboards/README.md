@@ -1,0 +1,1 @@
+One gotcha to be aware of:  The name of the subdirectory for a specific keyboard must match the name of the keyboard defined in `pcbs.*` in the respective `config.yml`.
