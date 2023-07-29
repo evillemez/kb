@@ -11,9 +11,9 @@ RUN npm run build
 ## STEP: Export DSN
 FROM soundmonster/kicad-automation-scripts:latest
 WORKDIR /root
+RUN mkdir -p $HOME/.config/kicad;
+RUN cp /root/.config/kicad/* $HOME/.config/kicad;
 COPY --from=0 /root/output .
-RUN mkdir -p $HOME/.config/kicad ;
-RUN cp /root/.config/kicad/* $HOME/.config/kicad ;
 RUN /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /root/output/pcbs/${NAME}.kicad_pcb /root/output/pcbs/${NAME}.dsn
 
 ## STEP: Autoroute PCB
