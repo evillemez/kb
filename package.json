@@ -1,7 +1,5 @@
 {
   "scripts": {
-    "build": "ergogen keyboard/ --output output/ --clear",
-    "debug": "ergogen keyboard/ --output output/ --clear --debug"
   },
   "dependencies": {
     "ergogen": "ergogen/ergogen#develop"
