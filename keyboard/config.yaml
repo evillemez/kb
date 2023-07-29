@@ -59,7 +59,7 @@ points:
       rows:
         main:
           row_net: P20
-          mirror.row_net: P0
+          mirror.row_net: P3
       columns:
         mod4:
           key.column_net: P14
