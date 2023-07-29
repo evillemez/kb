@@ -21,7 +21,7 @@ Use ergogen.cache.works to more easily edit the `config.yml` file in `keyboard/`
 To run ergogen locally, connect to the container and run the ergogen command to generate the files:
 
 * `make shell` to connect to container
-* `npm run build` to run ergogen and build the keyboard defined in `keyboard/`
+* Run erogen on any keyboard defined in a subdirectory, or use the makefile shortcut from the root directory: `make gen KB=elv`
 
 Inspect the makefile if you want the see the exact commands and arguments.
 
