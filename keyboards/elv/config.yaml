@@ -8,10 +8,10 @@ units:
   px: kx + 2
   py: ky + 2
 points:
-  rotate: -17.5
+  rotate: -12.5
   mirror: &mirror
-    ref: main_inner_top
-    distance: 45
+    ref: thumb_aux_main
+    distance: 22
   zones:
     main:
       anchor:
@@ -168,7 +168,7 @@ pcbs:
 
         where:
           ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
-          shift: [0, -2]
+          shift: [0, -3]
           rotate: -90
 
       # this one was a little confusing for me to use... sticking with promicro
@@ -220,7 +220,7 @@ pcbs:
         what: slider
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [31, 10]
+          shift: [31, 9]
         params:
           from: RAW
           to: BAT
