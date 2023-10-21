@@ -8,7 +8,7 @@ units:
   px: kx + 2
   py: ky + 2
 points:
-  rotate: -12.5
+  rotate: -13.5
   mirror: &mirror
     ref: thumb_aux_main
     distance: 22
