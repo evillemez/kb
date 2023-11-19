@@ -22,33 +22,33 @@ points:
         spread: 1kx
       columns:
         outer:
-          key.column_net: P14
+          key.column_net: P113
         pinky:
-          key.column_net: P16
+          key.column_net: P111
         ring:
           key:
             spread: u
-            column_net: P10
+            column_net: P010
         middle:
           key:
             spread: u
-            column_net: P7
+            column_net: P009
         index:
           key:
             spread: u
-            column_net: P8
+            column_net: P011
         inner:
-          key.column_net: P9
+          key.column_net: P104
       rows:
         bottom:
-          row_net: P15
-          mirror.row_net: P6
+          row_net: P002
+          mirror.row_net: P024
         home:
-          row_net: P18
-          mirror.row_net: P5
+          row_net: P029
+          mirror.row_net: P022
         top:
-          row_net: P19
-          mirror.row_net: P4
+          row_net: P031
+          mirror.row_net: P008
     thumb:
       key: 
         padding: 1ky
@@ -58,34 +58,34 @@ points:
         shift: [1.5kx, -ky]
       rows:
         main:
-          row_net: P20
-          mirror.row_net: P3
+          row_net: P115
+          mirror.row_net: P100
       columns:
         mod4:
-          key.column_net: P14
+          key.column_net: P113
         mod3:
-          key.column_net: P16
+          key.column_net: P111
         mod2:
-          key.column_net: P10
+          key.column_net: P010
         mod1:
           key:
             splay: -10
             spread: kx+2
             stagger: -2
-            column_net: P7
+            column_net: P009
         primary:
           key:
             splay: 70
             spread: kx+5
             stagger: 1
             width: 1.5kx
-            column_net: P8
+            column_net: P011
         aux:
           key:
             splay: 30
             spread: kx+8
             stagger: 6
-            column_net: P9
+            column_net: P104
 outlines:
   raw:
     - what: rectangle
@@ -154,50 +154,23 @@ pcbs:
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
-      promicro:
-        what: promicro
-        params:
-          # traces: true
-          # show_labels: false
-          orientation: "down"
-          P0: "DPD" # Display Data
-          P1: "DPC" # Display Clock
-          # GND
-          # GND
-          P2: "DPE" # Display CS (nice!view only) FIXME? ZPM default?
-
+      nicenano:
+        what: nice_nano
+        params: {}
         where:
           ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
           shift: [0, -3]
-          rotate: -90
-
-      # this one was a little confusing for me to use... sticking with promicro
-      # because that's more commonly found in tutorials
-      # nicenano:
-      #   what: infused-kim/nice_nano_pretty
-      #   params:
-      #     traces: true
-      #     show_labels: false
-      #   where:
-      #     ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
-      #     shift: [0, 0]
-      #     rotate: 0
-      
+          rotate: -90      
       niceview:
-        what: infused-kim/nice_view
+        what: nice_view
         params:
-          side: F
-          reverse: true
-          MOSI: DPD
-          SCK: DPC
-          CS: DPE
-          show_labels: false
-          jumpers_at_bottom: false
-
+          SDA: P017
+          SCL: P020
+          CS: P006
         where:
           ref.aggregate.parts: [main_inner_home, mirror_main_inner_home]
-          shift: [0, 10]
-          rotate: 0
+          shift: [0, -6]
+          rotate: 90
       reset:
         what: button
         params:
