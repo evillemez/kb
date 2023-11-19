@@ -1,7 +1,7 @@
 {
   "scripts": {},
   "dependencies": {
-    "@jscad/cli": "^2.3.0",
+    "@jscad/cli": "1",
     "ergogen": "ergogen/ergogen#develop"
   }
 }
