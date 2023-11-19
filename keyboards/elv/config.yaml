@@ -238,4 +238,7 @@ pcbs:
         where:
           ref: [mirror_main_inner_bottom]
           shift: [0.5kx, -0.3ky]
-
+cases:
+  bottom:
+    - name: board
+      extrude: 1
