@@ -197,4 +197,45 @@ pcbs:
         params:
           from: RAW
           to: BAT
-          side: B          
+          side: B
+      holeLeftOuterTop:
+        what: mountinghole
+        where:
+          ref: [main_outer_top]
+          shift: [0.5kx, -0.3ky]
+      holeLeftPinkyBottom:
+        what: mountinghole
+        where:
+          ref: [main_pinky_bottom]
+          shift: [0.5kx, -0.3ky]
+      holeLeftIndexTop:
+        what: mountinghole
+        where:
+          ref: [main_index_top]
+          shift: [0.5kx, -0.3ky]
+      holeLeftInnerBottom:
+        what: mountinghole
+        where:
+          ref: [main_inner_bottom]
+          shift: [0.5kx, -0.3ky]
+      holeRightOuterTop:
+        what: mountinghole
+        where:
+          ref: [mirror_main_outer_top]
+          shift: [0.5kx, -0.3ky]
+      holeRightPinkyBottom:
+        what: mountinghole
+        where:
+          ref: [mirror_main_pinky_bottom]
+          shift: [0.5kx, -0.3ky]
+      holeRightIndexTop:
+        what: mountinghole
+        where:
+          ref: [mirror_main_index_top]
+          shift: [0.5kx, -0.3ky]
+      holeRightInnerBottom:
+        what: mountinghole
+        where:
+          ref: [mirror_main_inner_bottom]
+          shift: [0.5kx, -0.3ky]
+
