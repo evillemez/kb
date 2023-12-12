@@ -7,6 +7,9 @@ units:
   # for padding between keycaps
   px: kx + 2
   py: ky + 2
+  # extra for edge of the board
+  dx: kx + 5
+  dy: ky + 5
 points:
   rotate: -13.5
   mirror: &mirror
@@ -22,33 +25,33 @@ points:
         spread: 1kx
       columns:
         outer:
-          key.column_net: P113
+          key.column_net: P031
         pinky:
-          key.column_net: P111
+          key.column_net: P029
         ring:
           key:
             spread: u
-            column_net: P010
+            column_net: P002
         middle:
           key:
             spread: u
-            column_net: P009
+            column_net: P115
         index:
           key:
             spread: u
-            column_net: P011
+            column_net: P020
         inner:
-          key.column_net: P104
+          key.column_net: P022
       rows:
         bottom:
-          row_net: P002
-          mirror.row_net: P024
+          row_net: P010
+          mirror.row_net: P011
         home:
-          row_net: P029
-          mirror.row_net: P022
+          row_net: P111
+          mirror.row_net: P100
         top:
-          row_net: P031
-          mirror.row_net: P008
+          row_net: P113
+          mirror.row_net: P024
     thumb:
       key: 
         padding: 1ky
@@ -58,34 +61,34 @@ points:
         shift: [1.5kx, -ky]
       rows:
         main:
-          row_net: P115
-          mirror.row_net: P100
+          row_net: P009
+          mirror.row_net: P104
       columns:
         mod4:
-          key.column_net: P113
+          key.column_net: P031
         mod3:
-          key.column_net: P111
+          key.column_net: P029
         mod2:
-          key.column_net: P010
+          key.column_net: P002
         mod1:
           key:
             splay: -10
             spread: kx+2
             stagger: -2
-            column_net: P009
+            column_net: P115
         primary:
           key:
             splay: 70
             spread: kx+5
             stagger: 1
             width: 1.5kx
-            column_net: P011
+            column_net: P020
         aux:
           key:
             splay: 30
             spread: kx+8
             stagger: 6
-            column_net: P104
+            column_net: P022
 outlines:
   raw:
     - what: rectangle
@@ -103,29 +106,29 @@ outlines:
       # and shifting points to edge of key
       points:
         - ref: main_outer_top
-          shift: [-0.5px, 0.5py]
+          shift: [-0.5dx, 0.5dy]
         - ref: main_outer_bottom
-          shift: [-0.5px, -0.5py]
+          shift: [-0.5dx, -0.5dy]
         - ref: thumb_mod4_main
-          shift: [-0.5px, -0.5py]
+          shift: [-0.5dx, -0.5dy]
         - ref: thumb_mod1_main
-          shift: [-0.5px, -0.5py]
+          shift: [-0.5dx, -0.5dy]
         - ref: thumb_primary_main
-          shift: [-0.75px, -0.75py]
+          shift: [-0.75dx, -0.75dy]
         - ref: mirror_thumb_primary_main
-          shift: [-0.75px, -0.75py]
+          shift: [-0.75dx, -0.75dy]
         - ref: mirror_thumb_mod1_main
-          shift: [-0.5px, -0.5py]
+          shift: [-0.5dx, -0.5dy]
         - ref: mirror_thumb_mod4_main
-          shift: [-0.5px, -0.5py]
+          shift: [-0.5dx, -0.5dy]
         - ref: mirror_main_outer_bottom
-          shift: [-0.5px, -0.5py]
+          shift: [-0.5dx, -0.5dy]
         - ref: mirror_main_outer_top
-          shift: [-0.5px, 0.5py]
+          shift: [-0.5dx, 0.5dy]
         - ref: mirror_main_index_top
-          shift: [-0.5px, 0.5py]
+          shift: [-0.5dx, 0.5dy]
         - ref: main_index_top
-          shift: [-0.5px, 0.5py]
+          shift: [-0.5dx, 0.5dy]
   combo:
     - name: board
     - operation: subtract
@@ -156,20 +159,21 @@ pcbs:
           to: "{{row_net}}"
       nicenano:
         what: nice_nano
-        params: {}
+        params:
+          orientation: "down"
         where:
           ref.aggregate.parts: [main_inner_top, mirror_main_inner_top]
-          shift: [0, -3]
+          shift: [0, -0.5]
           rotate: -90      
       niceview:
         what: nice_view
         params:
-          SDA: P017
-          SCL: P020
-          CS: P006
+          SDA: P006
+          SCL: P008
+          CS: P017
         where:
           ref.aggregate.parts: [main_inner_home, mirror_main_inner_home]
-          shift: [0, -6]
+          shift: [0, -3]
           rotate: 90
       reset:
         what: button
@@ -178,7 +182,7 @@ pcbs:
           to: RST
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [-16, 7]
+          shift: [-16, 10]
       battery:
         what: jstph
         params:
@@ -187,13 +191,13 @@ pcbs:
           side: F
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [24, 8.5]
+          shift: [24, 10]
           rotate: -90
       powerswitch:
         what: slider
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [31, 9]
+          shift: [31, 11.5]
         params:
           from: RAW
           to: BAT
