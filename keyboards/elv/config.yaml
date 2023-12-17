@@ -191,13 +191,13 @@ pcbs:
           side: F
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [24, 10]
+          shift: [32, 10.25]
           rotate: -90
       powerswitch:
         what: slider
         where:
           ref.aggregate.parts: [main_index_top, mirror_main_index_top]
-          shift: [31, 11.5]
+          shift: [18, 11.5]
         params:
           from: RAW
           to: BAT
